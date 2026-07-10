@@ -1,5 +1,11 @@
 import { Education, Experience, Project, Skill, Certificate } from './types';
 
+// Import assets as ES Modules so Vite compiles and bundles them correctly for any environment (like Vercel)
+import profilePhoto from './assets/images/user_profile_photo_new_1783647394075.jpg';
+import projectInventory from './assets/images/project_inventory_1783642786940.jpg';
+import projectAnalytics from './assets/images/project_analytics_1783642801930.jpg';
+import projectArchiving from './assets/images/project_archiving_1783642814857.jpg';
+
 export const personalInfo = {
   name: 'Apriliana Karunia Putri, S.Kom.',
   title: 'Information Systems Graduate & Junior Data Analyst',
@@ -8,7 +14,7 @@ export const personalInfo = {
   phone: '0823 1111 5078',
   email: 'aprilianakp010@gmail.com',
   bio: 'Saya adalah lulusan Sarjana Komputer program studi Sistem Informasi dari Universitas Semarang (USM) dengan ketertarikan mendalam pada analisis data, manajemen sistem informasi, dan pengembangan solusi teknologi. Memiliki pengalaman 1 tahun dalam menganalisis kebutuhan sistem, mengolah data bisnis, serta mengimplementasikan solusi digital untuk meningkatkan efisiensi operasional. Mengombinasikan keahlian analitis, sertifikasi data analisis profesional, dan pemahaman AI modern untuk memberikan nilai tambah yang nyata bagi pertumbuhan bisnis.',
-  photoUrl: '/src/assets/images/user_profile_photo_1783644922701.jpg',
+  photoUrl: profilePhoto,
   socials: {
     github: 'https://github.com/aprilianakp',
     linkedin: 'https://linkedin.com/in/apriliana-karunia-putri',
@@ -119,7 +125,7 @@ export const projectsList: Project[] = [
     title: 'Sistem Informasi Manajemen Inventory UMKM',
     category: 'Manajemen Sistem Informasi',
     description: 'Sebuah aplikasi manajemen stok barang yang dirancang khusus untuk UMKM guna mendigitalisasi pencatatan masuk-keluar barang, peringatan stok menipis secara otomatis, dan peramalan kebutuhan stok bulanan berbasis riwayat transaksi.',
-    imageUrl: '/src/assets/images/project_inventory_1783642786940.jpg',
+    imageUrl: projectInventory,
     tags: ['React', 'Tailwind CSS', 'SQL Database', 'UML Design', 'Charts'],
     demoUrl: '#',
     githubUrl: 'https://github.com/aprilianakp/inventory-umkm'
@@ -129,7 +135,7 @@ export const projectsList: Project[] = [
     title: 'Dashboard Analisis Data Penjualan Semarang',
     category: 'Analisis Data & Business Intelligence',
     description: 'Dashboard interaktif yang menyajikan visualisasi data penjualan produk dari beberapa toko kelontong di area Kota Semarang. Menggunakan metrik kinerja utama untuk menganalisis tren produk terlaris, wilayah penjualan tertinggi, dan margin keuntungan.',
-    imageUrl: '/src/assets/images/project_analytics_1783642801930.jpg',
+    imageUrl: projectAnalytics,
     tags: ['Looker Studio', 'SQL', 'Excel Analytics', 'Data Viz'],
     demoUrl: '#',
     githubUrl: 'https://github.com/aprilianakp/sales-dashboard-semarang'
@@ -139,7 +145,7 @@ export const projectsList: Project[] = [
     title: 'Sistem Pengarsipan Surat Digital Kelurahan',
     category: 'Sistem Administrasi Publik',
     description: 'Sistem informasi pengelolaan surat masuk dan keluar berbasis web untuk mempercepat pelayanan administrasi di tingkat kelurahan Kota Semarang. Memiliki fitur pencarian arsip instan, penomoran otomatis, dan pelacakan disposisi surat.',
-    imageUrl: '/src/assets/images/project_archiving_1783642814857.jpg',
+    imageUrl: projectArchiving,
     tags: ['HTML5', 'Tailwind CSS', 'JavaScript', 'Database PostgreSQL', 'System Analysis'],
     demoUrl: '#',
     githubUrl: 'https://github.com/aprilianakp/arsip-surat-kelurahan'
