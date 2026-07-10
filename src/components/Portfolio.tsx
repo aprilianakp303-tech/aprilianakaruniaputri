@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ExternalLink, Github, FolderOpen, Tag } from 'lucide-react';
+import { FolderOpen, Tag } from 'lucide-react';
 import { projectsList } from '../data';
 
 export default function Portfolio() {
@@ -85,8 +85,8 @@ export default function Portfolio() {
                   </p>
                 </div>
 
-                {/* Stacks Tags & Action Buttons */}
-                <div className="space-y-6 pt-4 border-t border-gray-50 dark:border-slate-800/80 mt-auto">
+                {/* Stacks Tags */}
+                <div className="pt-4 border-t border-gray-50 dark:border-slate-800/80 mt-auto">
                   <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
                       <span
@@ -97,29 +97,6 @@ export default function Portfolio() {
                         {tag}
                       </span>
                     ))}
-                  </div>
-
-                  {/* Links Row */}
-                  <div className="flex items-center gap-3">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-700 hover:border-pink-300 dark:hover:border-pink-900 hover:bg-pink-50/10 text-gray-600 dark:text-gray-300 text-xs sm:text-sm font-semibold transition-all w-full cursor-pointer"
-                    >
-                      <Github className="w-4 h-4" />
-                      Repository
-                    </a>
-                    
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs sm:text-sm font-semibold transition-all hover:opacity-90 w-full shadow-sm cursor-pointer"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Live Demo
-                      </a>
-                    )}
                   </div>
                 </div>
 

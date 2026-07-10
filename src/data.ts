@@ -8,7 +8,7 @@ export const personalInfo = {
   phone: '0823 1111 5078',
   email: 'aprilianakp010@gmail.com',
   bio: 'Saya adalah lulusan Sarjana Komputer program studi Sistem Informasi dari Universitas Semarang (USM) dengan ketertarikan mendalam pada analisis data, manajemen sistem informasi, dan pengembangan solusi teknologi. Memiliki pengalaman 1 tahun dalam menganalisis kebutuhan sistem, mengolah data bisnis, serta mengimplementasikan solusi digital untuk meningkatkan efisiensi operasional. Mengombinasikan keahlian analitis, sertifikasi data analisis profesional, dan pemahaman AI modern untuk memberikan nilai tambah yang nyata bagi pertumbuhan bisnis.',
-  photoUrl: '/src/assets/images/profile_clean_headshot_1783643768168.jpg',
+  photoUrl: '/src/assets/images/user_profile_photo_1783644922701.jpg',
   socials: {
     github: 'https://github.com/aprilianakp',
     linkedin: 'https://linkedin.com/in/apriliana-karunia-putri',

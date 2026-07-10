@@ -15,18 +15,18 @@ export default function CVPrintable({ isOpen, onClose }: CVPrintableProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 no-print">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 cv-print-modal-overlay">
       
       {/* Outer Modal Container */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="relative bg-gray-100 dark:bg-slate-900 w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-slate-800 flex flex-col max-h-[95vh]"
+        className="relative bg-gray-100 dark:bg-slate-900 w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-slate-800 flex flex-col max-h-[95vh] cv-print-modal-card"
       >
         
         {/* Floating Actions Bar (Header) */}
-        <div className="flex items-center justify-between px-6 py-4 bg-white dark:bg-slate-950 border-b border-gray-200 dark:border-slate-800">
+        <div className="flex items-center justify-between px-6 py-4 bg-white dark:bg-slate-950 border-b border-gray-200 dark:border-slate-800 no-print">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-pink-500" />
             <span className="text-sm font-bold text-gray-700 dark:text-gray-300">
@@ -52,7 +52,7 @@ export default function CVPrintable({ isOpen, onClose }: CVPrintableProps) {
         </div>
 
         {/* Scrollable Printable CV Sheet Container */}
-        <div className="flex-grow overflow-y-auto p-4 sm:p-8 bg-gray-100 dark:bg-slate-900/40">
+        <div className="flex-grow overflow-y-auto p-4 sm:p-8 bg-gray-100 dark:bg-slate-900/40 cv-print-scroll-container">
           
           {/* Paper sheet */}
           <div
@@ -269,7 +269,7 @@ export default function CVPrintable({ isOpen, onClose }: CVPrintableProps) {
         </div>
 
         {/* Printable Footer Alert inside preview window */}
-        <div className="bg-pink-50 dark:bg-slate-950 px-6 py-3.5 text-xs text-center border-t border-gray-200 dark:border-slate-800 text-gray-500">
+        <div className="bg-pink-50 dark:bg-slate-950 px-6 py-3.5 text-xs text-center border-t border-gray-200 dark:border-slate-800 text-gray-500 no-print">
           Tip: Saat jendela Cetak browser terbuka, pilih <strong className="text-pink-600 dark:text-pink-400">"Save as PDF"</strong> dan centang opsi <strong className="text-pink-600 dark:text-pink-400">"Background Graphics"</strong> untuk hasil warna terbaik.
         </div>
 
