@@ -1,21 +1,51 @@
 import { motion } from 'motion/react';
-import { Download, MapPin, Mail, Phone, FileText } from 'lucide-react';
+import { MapPin, MessageCircle, ArrowRight } from 'lucide-react';
 import { personalInfo } from '../data';
 
-interface HeroProps {
-  onOpenCV: () => void;
-}
+export default function Hero() {
+  const scrollToPortfolio = () => {
+    const element = document.getElementById('portfolio');
+    if (element) {
+      const offset = 80; // navbar height
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
-export default function Hero({ onOpenCV }: HeroProps) {
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center pt-20 pb-12 overflow-hidden bg-gradient-to-b from-pink-50/50 via-purple-50/30 to-white dark:from-slate-950 dark:via-purple-950/10 dark:to-slate-900"
     >
+      {/* Elegant Technical Blueprint Grid & Dot Matrix Patterns */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] opacity-50 dark:opacity-30 pointer-events-none" />
+      
       {/* Dynamic Background Decorative Orbs */}
       <div className="absolute top-1/4 left-10 w-72 h-72 bg-pink-300/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl animate-pulse delay-1000" />
       <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-indigo-300/10 rounded-full blur-3xl" />
+
+      {/* Floating subtle geometric lines / spin rings */}
+      <div className="absolute top-24 right-12 w-28 h-28 border border-pink-400/10 rounded-full animate-spin-slow pointer-events-none hidden md:block" />
+      <div className="absolute bottom-24 left-12 w-36 h-36 border border-purple-500/10 rounded-3xl animate-spin-slow pointer-events-none hidden md:block" />
+
+      {/* Glowing systems/analytics nodes floating gently */}
+      <motion.div
+        animate={{ y: [0, -12, 0] }}
+        transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
+        className="absolute top-1/3 right-1/4 w-3.5 h-3.5 rounded-full bg-pink-400/30 blur-[1px] pointer-events-none hidden md:block"
+      />
+      <motion.div
+        animate={{ y: [0, 15, 0] }}
+        transition={{ repeat: Infinity, duration: 8, ease: 'easeInOut' }}
+        className="absolute bottom-1/3 left-1/4 w-4 h-4 rounded-full bg-purple-400/20 blur-[2px] pointer-events-none hidden md:block"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -28,7 +58,7 @@ export default function Hero({ onOpenCV }: HeroProps) {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-pink-100 text-pink-700 border border-pink-200/50 dark:bg-pink-950/40 dark:text-pink-300 dark:border-pink-800/40 mb-6">
-                <MapPin className="w-3.5 h-3.5" />
+                <MapPin className="w-3.5 h-3.5 animate-bounce" />
                 {personalInfo.domicile}
               </span>
             </motion.div>
@@ -60,7 +90,7 @@ export default function Hero({ onOpenCV }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed"
             >
-              Lulusan Sarjana Komputer (S.Kom.) program studi <strong className="text-pink-600 dark:text-pink-400 font-semibold">Sistem Informasi</strong> dari Universitas Semarang (USM). Memiliki keahlian teruji di bidang analisis data, manajemen sistem informasi, dan teknologi modern dengan pengalaman kerja praktis selama 1 tahun.
+              Lulusan Sarjana Komputer (S.Kom.) program studi <strong className="text-pink-600 dark:text-pink-400 font-semibold">Sistem Informasi</strong> dari Universitas Semarang (USM). Memiliki keahlian teruji di bidang analisis data, manajemen sistem informasi, dan teknologi modern dengan pemahaman mendalam untuk mentransformasikan proses manual menjadi digital.
             </motion.p>
 
             {/* Quick Contact & Call to Actions */}
@@ -68,39 +98,25 @@ export default function Hero({ onOpenCV }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
             >
-              <button
-                onClick={onOpenCV}
-                className="group relative flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold text-base shadow-lg shadow-pink-200 dark:shadow-none hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              <a
+                href={personalInfo.socials.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center justify-center gap-2.5 w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold text-base shadow-lg shadow-pink-200 dark:shadow-none hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
-                <Download className="w-5 h-5 group-hover:animate-bounce" />
-                Unduh CV / Cetak PDF
-                <span className="absolute -top-1.5 -right-1.5 px-2 py-0.5 text-[9px] font-bold bg-indigo-600 text-white rounded-full uppercase tracking-wider animate-pulse">
-                  Hot
-                </span>
+                <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                Hubungi Saya
+              </a>
+              
+              <button
+                onClick={scrollToPortfolio}
+                className="group flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-full border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:bg-pink-50/20 dark:hover:bg-slate-900/30 text-gray-700 dark:text-gray-300 font-semibold text-base transition-all duration-300 hover:-translate-y-0.5 cursor-pointer shadow-sm hover:border-pink-300 dark:hover:border-pink-900"
+              >
+                Lihat Portofolio
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-            </motion.div>
-
-            {/* Quick Badges */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center lg:justify-start items-center gap-y-4 gap-x-6 pt-4 border-t border-gray-100 dark:border-slate-800"
-            >
-              <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-                <span className="w-2.5 h-2.5 rounded-full bg-pink-500" />
-                <span>1 Tahun Pengalaman</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-                <span className="w-2.5 h-2.5 rounded-full bg-purple-500" />
-                <span>Sertifikasi Coursera</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-                <span className="w-2.5 h-2.5 rounded-full bg-indigo-500" />
-                <span>AI Dev Certificate</span>
-              </div>
             </motion.div>
           </div>
 

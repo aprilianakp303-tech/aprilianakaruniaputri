@@ -6,13 +6,11 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Portfolio from './components/Portfolio';
 import Certificates from './components/Certificates';
-import CVPrintable from './components/CVPrintable';
 import { ArrowUp, Github, Linkedin, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { personalInfo } from './data';
 
 export default function App() {
-  const [isCVOpen, setIsCVOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -37,16 +35,13 @@ export default function App() {
 
       {/* Main Sections */}
       <main className="no-print">
-        <Hero onOpenCV={() => setIsCVOpen(true)} />
+        <Hero />
         <About />
         <Experience />
         <Skills />
         <Portfolio />
         <Certificates />
       </main>
-
-      {/* CV Modal / Printable PDF Sheet */}
-      <CVPrintable isOpen={isCVOpen} onClose={() => setIsCVOpen(false)} />
 
       {/* Footer Section */}
       <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800/80 no-print">

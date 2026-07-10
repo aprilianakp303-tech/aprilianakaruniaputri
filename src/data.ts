@@ -1,7 +1,7 @@
 import { Education, Experience, Project, Skill, Certificate } from './types';
 
 // Import assets as ES Modules so Vite compiles and bundles them correctly for any environment (like Vercel)
-import profilePhoto from './assets/images/user_profile_photo_new_1783647394075.jpg';
+import profilePhoto from './assets/images/profile_clean_executive_1783650142506.jpg';
 import projectInventory from './assets/images/project_inventory_1783642786940.jpg';
 import projectAnalytics from './assets/images/project_analytics_1783642801930.jpg';
 import projectArchiving from './assets/images/project_archiving_1783642814857.jpg';
